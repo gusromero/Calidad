@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileControlLib", "TileControlLib\TileControlLib.csproj", "{B0E6BA0E-58AF-4610-A665-E8C1E7E93F91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinesweeperWPF", "MinesweeperWPF\MinesweeperWPF.csproj", "{BDE63795-EF47-4C59-BFBA-16D565553F74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0E6BA0E-58AF-4610-A665-E8C1E7E93F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E6BA0E-58AF-4610-A665-E8C1E7E93F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E6BA0E-58AF-4610-A665-E8C1E7E93F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E6BA0E-58AF-4610-A665-E8C1E7E93F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE63795-EF47-4C59-BFBA-16D565553F74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE63795-EF47-4C59-BFBA-16D565553F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE63795-EF47-4C59-BFBA-16D565553F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE63795-EF47-4C59-BFBA-16D565553F74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
