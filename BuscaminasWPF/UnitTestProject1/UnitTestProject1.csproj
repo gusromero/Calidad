@@ -58,8 +58,13 @@
   <ItemGroup>
     <Compile Include="TileControlUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MainWindowUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MinesweeperWPF\MinesweeperWPF.csproj">
+      <Project>{bde63795-ef47-4c59-bfba-16d565553f74}</Project>
+      <Name>MinesweeperWPF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TileControlLib\TileControlLib.csproj">
       <Project>{b0e6ba0e-58af-4610-a665-e8c1e7e93f91}</Project>
       <Name>TileControlLib</Name>
