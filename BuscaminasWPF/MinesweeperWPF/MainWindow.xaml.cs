@@ -144,5 +144,28 @@ namespace MinesweeperWPF
             }
         }
 
+        public void SpreadBombs(IGenerator generator)
+        {
+            int bombs = Convert.ToInt32(Math.Truncate((decimal)(Math.Pow(this.Size, 2)) / 4));
+            emptyTiles = Convert.ToInt32(Math.Pow(this.Size, 2)) - bombs;
+            int e = 0;
+
+            for (int i = 0; i < bombs; i++)
+            {
+                do
+                {
+                    e = generator.Next(field.Children.Count);
+                } while (((TileControl)field.Children[e]).IsBomb);
+
+                ((TileControl)field.Children[e]).IsBomb = true;
+            }
+
+            foreach (UIElement element in field.Children)
+            {
+                ((TileControl)element).Text = GetSuroundingBombs(Grid.GetRow(element), Grid.GetColumn(element));
+            }
+        }
+
+
     }
 }
