@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileControlLib", "TileContr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinesweeperWPF", "MinesweeperWPF\MinesweeperWPF.csproj", "{BDE63795-EF47-4C59-BFBA-16D565553F74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{5925AD7E-93F0-4C71-B1AF-0C26E095D598}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{BDE63795-EF47-4C59-BFBA-16D565553F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDE63795-EF47-4C59-BFBA-16D565553F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDE63795-EF47-4C59-BFBA-16D565553F74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5925AD7E-93F0-4C71-B1AF-0C26E095D598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5925AD7E-93F0-4C71-B1AF-0C26E095D598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5925AD7E-93F0-4C71-B1AF-0C26E095D598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5925AD7E-93F0-4C71-B1AF-0C26E095D598}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
