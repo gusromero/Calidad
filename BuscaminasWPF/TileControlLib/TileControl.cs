@@ -49,5 +49,70 @@ namespace TileControlLib
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(TileControl), new FrameworkPropertyMetadata(typeof(TileControl)));
         }
+
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
+
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register("Text", typeof(string), typeof(TileControl), new PropertyMetadata(String.Empty));
+
+
+        public TileControlState State
+        {
+            get { return (TileControlState)GetValue(StateProperty); }
+            set
+            {
+                var oldValue = (TileControlState)GetValue(StateProperty);
+                SetValue(StateProperty, value);
+                RaiseDiscoverEventEvent(oldValue, value);
+            }
+        }
+
+        public static readonly DependencyProperty StateProperty =
+            DependencyProperty.Register("State", typeof(TileControlState), typeof(TileControl), new PropertyMetadata(TileControlState.Covered));
+
+
+
+        public bool IsBomb
+        {
+            get { return (bool)GetValue(IsBombProperty); }
+            set { SetValue(IsBombProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsBombProperty =
+            DependencyProperty.Register("IsBomb", typeof(bool), typeof(TileControl), new PropertyMetadata(false));
+
+
+
+        public static readonly RoutedEvent DiscoverEvent = EventManager.RegisterRoutedEvent(
+    "Discovered", RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<TileControlState>), typeof(TileControl));
+
+        public event RoutedPropertyChangedEventHandler<TileControlState> Discover
+        {
+            add { AddHandler(DiscoverEvent, value); }
+            remove { RemoveHandler(DiscoverEvent, value); }
+        }
+
+        // This method raises the Tap event 
+        void RaiseDiscoverEventEvent(TileControlState oldValue, TileControlState newValue)
+        {
+            var newEventArgs = new RoutedPropertyChangedEventArgs<TileControlState>(oldValue, newValue, TileControl.DiscoverEvent);
+            RaiseEvent(newEventArgs);
+        }
+
+        protected override void OnPreviewMouseLeftButtonUp(MouseButtonEventArgs e)
+        {
+            base.OnPreviewMouseLeftButtonUp(e);
+            if (State == TileControlState.Covered)
+                if (IsBomb)
+                    State = TileControlState.Bomb;
+                else
+                    State = TileControlState.Text;
+        }
+
+
     }
 }
