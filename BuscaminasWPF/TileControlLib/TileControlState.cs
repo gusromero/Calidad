@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TileControlLib
+﻿namespace TileControlLib
 {
     public enum TileControlState
     {

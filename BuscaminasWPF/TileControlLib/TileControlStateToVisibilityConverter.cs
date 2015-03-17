@@ -8,7 +8,7 @@ namespace TileControlLib
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            Visibility result = Visibility.Hidden;
+            var result = Visibility.Hidden;
             switch (System.Convert.ToInt32(parameter))
             {
                 case 0:

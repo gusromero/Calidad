@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 using TileControlLib;
 
 namespace MinesweeperWPF
@@ -23,7 +15,7 @@ namespace MinesweeperWPF
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
+            DataContext = this;
             CleanField();
             GenerateField();
             SpreadBombs();
@@ -52,15 +44,15 @@ namespace MinesweeperWPF
 
         public void GenerateField()
         {
-            for (int i = 0; i < this.Size; i++)
+            for (int i = 0; i < Size; i++)
                 field.ColumnDefinitions.Add(new ColumnDefinition());
-            for (int j = 0; j < this.Size; j++)
+            for (int j = 0; j < Size; j++)
                 field.RowDefinitions.Add(new RowDefinition());
 
-            for (int i = 0; i < this.Size; i++)
-                for (int j = 0; j < this.Size; j++)
+            for (int i = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
                 {
-                    TileControl control = new TileControl();
+                    var control = new TileControl();
                     control.Discover += TileControl_Discover;
                     field.Children.Add(control);
                     Grid.SetRow(control, i);
@@ -78,7 +70,7 @@ namespace MinesweeperWPF
         {
             get
             {
-                return this.field;
+                return field;
             }
         }
 
@@ -92,7 +84,7 @@ namespace MinesweeperWPF
             int bombs = Convert.ToInt32(Math.Truncate((decimal)(Math.Pow(this.Size, 2)) / 4));
             emptyTiles = Convert.ToInt32(Math.Pow(this.Size, 2)) - bombs;
             int e = 0;
-            Random generator = new Random();
+            var generator = new Random();
 
             for (int i = 0; i < bombs; i++)
             {
@@ -113,12 +105,12 @@ namespace MinesweeperWPF
 
         public string GetSuroundingBombs(int row, int column)
         {
-            int result = 0;
-            int rows = field.RowDefinitions.Count();
-            int columns = field.ColumnDefinitions.Count();
+            var result = 0;
+            var rows = field.RowDefinitions.Count();
+            var columns = field.ColumnDefinitions.Count();
 
-            for (int x = row - 1; x <= row + 1; x++)
-                for (int y = column - 1; y <= column + 1; y++)
+            for (var x = row - 1; x <= row + 1; x++)
+                for (var y = column - 1; y <= column + 1; y++)
                 {
                     if ((x < 0) || (x >= rows) || (y < 0) || (y >= columns))
                         continue;
@@ -129,10 +121,10 @@ namespace MinesweeperWPF
                         result += elements.Any() ? 1 : 0;
                     }
                 }
-            return result.ToString();
+            return result.ToString(CultureInfo.InvariantCulture);
         }
 
-        private void TileControl_Discover(object sender, RoutedPropertyChangedEventArgs<TileControlLib.TileControlState> e)
+        private void TileControl_Discover(object sender, RoutedPropertyChangedEventArgs<TileControlState> e)
         {
             if (e.NewValue == TileControlState.Bomb)
                 MessageBox.Show("Juego terminado. Tu pierdes");
@@ -146,9 +138,9 @@ namespace MinesweeperWPF
 
         public void SpreadBombs(IGenerator generator)
         {
-            int bombs = Convert.ToInt32(Math.Truncate((decimal)(Math.Pow(this.Size, 2)) / 4));
-            emptyTiles = Convert.ToInt32(Math.Pow(this.Size, 2)) - bombs;
-            int e = 0;
+            int bombs = Convert.ToInt32(Math.Truncate((decimal)(Math.Pow(Size, 2)) / 4));
+            emptyTiles = Convert.ToInt32(Math.Pow(Size, 2)) - bombs;
+            int e;
 
             for (int i = 0; i < bombs; i++)
             {

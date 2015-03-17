@@ -8,7 +8,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void DiscoverEventTestMethod()
         {
-            TileControlLib.TileControl control = new TileControlLib.TileControl();
+            var control = new TileControlLib.TileControl();
             control.State = TileControlLib.TileControlState.Covered;
             control.Discover += delegate(object sender,
                 System.Windows.RoutedPropertyChangedEventArgs<TileControlLib.TileControlState> e)

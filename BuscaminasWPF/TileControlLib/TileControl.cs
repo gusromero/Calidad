@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace TileControlLib
 {
@@ -99,7 +91,7 @@ namespace TileControlLib
         // This method raises the Tap event 
         void RaiseDiscoverEventEvent(TileControlState oldValue, TileControlState newValue)
         {
-            var newEventArgs = new RoutedPropertyChangedEventArgs<TileControlState>(oldValue, newValue, TileControl.DiscoverEvent);
+            var newEventArgs = new RoutedPropertyChangedEventArgs<TileControlState>(oldValue, newValue, DiscoverEvent);
             RaiseEvent(newEventArgs);
         }
 
@@ -107,10 +99,7 @@ namespace TileControlLib
         {
             base.OnPreviewMouseLeftButtonUp(e);
             if (State == TileControlState.Covered)
-                if (IsBomb)
-                    State = TileControlState.Bomb;
-                else
-                    State = TileControlState.Text;
+                State = IsBomb ? TileControlState.Bomb : TileControlState.Text;
         }
 
 
