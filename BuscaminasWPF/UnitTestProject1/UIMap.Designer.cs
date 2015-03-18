@@ -211,7 +211,7 @@ namespace UnitTestProject1
         /// <summary>
         /// Verify that the 'ControlType' property of 'Juego terminado. Tu Ganas' label equals 'Juego terminado. Tu Ganas'
         /// </summary>
-        public string UIJuegoterminadoTuGanaTextControlType = "Juego terminado. Tu Ganas";
+        public string UIJuegoterminadoTuGanaTextControlType = "Text";
         #endregion
     }
     
@@ -339,7 +339,7 @@ namespace UnitTestProject1
         public UIJuegoterminadoTuGanaWindow()
         {
             #region Search Criteria
-            this.SearchProperties[WinWindow.PropertyNames.Name] = "Juego terminado. Tu Ganas";
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Text";
             this.SearchProperties[WinWindow.PropertyNames.ClassName] = "Static";
             this.WindowTitles.Add("Juego terminado. Tu Ganas");
             #endregion
@@ -354,8 +354,8 @@ namespace UnitTestProject1
                 {
                     this.mUIJuegoterminadoTuGanaText = new WinText(this);
                     #region Search Criteria
-                    this.mUIJuegoterminadoTuGanaText.SearchProperties[WinText.PropertyNames.Name] = "Juego terminado. Tu Ganas";
-                    this.mUIJuegoterminadoTuGanaText.WindowTitles.Add("Juego terminado. Tu Ganas");
+                    this.mUIJuegoterminadoTuGanaText.SearchProperties[WinText.PropertyNames.Name] = "Text";
+                    this.mUIJuegoterminadoTuGanaText.WindowTitles.Add("Text");
                     #endregion
                 }
                 return this.mUIJuegoterminadoTuGanaText;
