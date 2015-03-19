@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
@@ -86,15 +87,18 @@ namespace MinesweeperWPF
             int e = 0;
             var generator = new Random();
 
+            List<TileControl> list = field.Children.Cast<TileControl>().ToList();
             for (int i = 0; i < bombs; i++)
             {
                 do
                 {
-                    e = generator.Next(field.Children.Count);
-                } while (((TileControl)field.Children[e]).IsBomb);
+                    e = generator.Next(list.Count);
+                } while (list[e].IsBomb);
 
-                ((TileControl)field.Children[e]).IsBomb = true;
+                list[e].IsBomb = true;
+                list.RemoveAt(e);
             }
+
 
             foreach (UIElement element in field.Children)
             {
